@@ -1,0 +1,75 @@
+{
+  "_embedded": {
+    "addresses": [
+      {
+        "id": "0268200000075156",
+        "street": "Binderskampweg",
+        "number": 29,
+        "letter": "U",
+        "addition": "31",
+        "postcode": "6545CA",
+        "nen5825": {
+          "street": "BINDERSKAMPWEG",
+          "postcode": "6545 CA"
+        },
+        "city": {
+          "id": "1",
+          "label": "Nijmegen"
+        },
+        "municipality": {
+          "id": "3030",
+          "label": "Nijmegen"
+        },
+        "province": {
+          "id": "1",
+          "label": "Gelderland"
+        },
+        "geo": {
+          "center": {
+            "wgs84": {
+              "type": "Point",
+              "coordinates": [
+                6.861053257304809,
+                53.32271304611565
+              ],
+              "crs": {
+                "type": "name",
+                "properties": {
+                  "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+                }
+              }
+            },
+            "rd": {
+              "type": "Point",
+              "coordinates": [
+                253207,
+                593924
+              ],
+              "crs": {
+                "type": "name",
+                "properties": {
+                  "name": "urn:ogc:def:crs:EPSG::28992"
+                }
+              }
+            }
+          }
+        },
+        "type": "Verblijfsobject",
+        "purpose": "woonfunctie",
+        "_links": {
+          "self": {
+            "href": "https://postcode-api.apiwise.nl/v2/addresses/0268200000075156/"
+          }
+        }
+      }
+    ]
+  },
+  "_links": {
+    "self": {
+      "href": "https://postcode-api.apiwise.nl/v2/addresses/"
+    },
+    "next": {
+      "href": "https://postcode-api.apiwise.nl/v2/addresses/?from=0268200000075156"
+    }
+  }
+}
