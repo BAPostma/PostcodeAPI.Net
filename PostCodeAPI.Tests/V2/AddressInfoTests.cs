@@ -9,6 +9,7 @@ using PostcodeAPI.V2.Wrappers;
 namespace PostCodeAPI.Tests.V2
 {
     [TestClass]
+    [Ignore]
     public class AddressInfoTests
     {
         private string _apiKey;
