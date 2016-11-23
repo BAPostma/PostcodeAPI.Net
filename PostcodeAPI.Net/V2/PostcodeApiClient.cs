@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using Newtonsoft.Json;
@@ -11,6 +12,17 @@ namespace PostcodeAPI.V2
     public sealed class PostcodeApiClient : PostcodeApiClientBase
     {
         private const string Resource = "addresses";
+
+        /// <summary>
+        /// The number of calls that the client is allowed to make per day
+        /// Value is null when no call has been made yet.
+        /// </summary>
+        public int? RequestDayLimit { get; private set; } = null;
+        /// <summary>
+        /// The remaining number of calls that the client is still allowed to make this day.
+        /// Value is null when no call has been made yet.
+        /// </summary>
+        public int? RequestsRemaining { get; private set; } = null;
 
         public PostcodeApiClient(string apiKey) : base(apiKey)
         {
@@ -56,6 +68,7 @@ namespace PostcodeAPI.V2
 
             IRestResponse<ApiHalResultWrapper> result = Client.Execute<ApiHalResultWrapper>(request);
             if (result.StatusCode != HttpStatusCode.OK) HandleStatusCodeResult(result);
+            UpdateLimitsAfterApiCall(result);
 
             var instance = JsonConvert.DeserializeObject<ApiHalResultWrapper>(result.Content);
             return instance;
@@ -73,6 +86,7 @@ namespace PostcodeAPI.V2
 
             IRestResponse<Address> result = Client.Execute<Address>(request);
             if (result.StatusCode != HttpStatusCode.OK) HandleStatusCodeResult(result);
+            UpdateLimitsAfterApiCall(result);
 
             var instance = JsonConvert.DeserializeObject<Address>(result.Content);
             return instance;
@@ -84,6 +98,24 @@ namespace PostcodeAPI.V2
             string error = result.error ?? restResponse.Content;
 
             throw new HttpRequestException(error, restResponse.ErrorException);
+        }
+
+        private void UpdateLimitsAfterApiCall(IRestResponse restResponse)
+        {
+            int limitValue, remainingValue;
+
+            Parameter limit = restResponse.Headers.FirstOrDefault(h => h.Name == "X-RateLimit-Limit" && h.Type == ParameterType.HttpHeader);
+            Parameter remaining = restResponse.Headers.FirstOrDefault(h => h.Name == "X-RateLimit-Remaining" && h.Type == ParameterType.HttpHeader);
+
+            if (limit != null && int.TryParse(limit.Value.ToString(), out limitValue))
+            {
+                RequestDayLimit = limitValue;
+            }
+
+            if (remaining != null && int.TryParse(remaining.Value.ToString(), out remainingValue))
+            {
+                RequestsRemaining = remainingValue;
+            }
         }
     }
 }
