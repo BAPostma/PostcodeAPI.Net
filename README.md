@@ -8,3 +8,6 @@ More information can be found on <http://www.postcodeapi.nu>. Access tokens can 
 To contribute to the specification of this API, join the guys over at their repo: <https://github.com/apiwise/postcodeapi>.
 
 Any contributions are welcome in the form of pull-requests.
+
+## Installation
+The package can be installed via NuGet: <https://www.nuget.org/packages/postcodeapi.net/>.
