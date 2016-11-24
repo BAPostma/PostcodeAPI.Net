@@ -63,6 +63,8 @@
     <Compile Include="V1\Model\Resource.cs" />
     <Compile Include="V1\Wrappers\ApiResultWrapper.cs" />
     <Compile Include="V2\Model\Address.cs" />
+    <Compile Include="V2\Model\Postcode\Address.cs" />
+    <Compile Include="V2\Model\Postcode\NEN5825.cs" />
     <Compile Include="V2\Wrappers\HalEmbeddedResult.cs" />
     <Compile Include="V2\Wrappers\HalNavigator.cs" />
     <Compile Include="V2\Model\City.cs" />
@@ -78,6 +80,8 @@
     <Compile Include="V2\Model\RijksDriehoek.cs" />
     <Compile Include="V2\Model\WGS84.cs" />
     <Compile Include="V2\Wrappers\ApiHalResultWrapper.cs" />
+    <Compile Include="V2\Wrappers\Postcode\ApiHalResultWrapper.cs" />
+    <Compile Include="V2\Wrappers\Postcode\HalEmbeddedResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

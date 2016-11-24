@@ -63,7 +63,6 @@ namespace PostCodeAPI.Tests.V2
             ApiHalResultWrapper result = client.GetAddress("1097JR");
 
             Assert.IsNotNull(result);
-            Assert.IsNotNull(result);
             Assert.IsNotNull(result.Links.Self);
             Assert.IsNotNull(result.Links.Next);
             Assert.IsTrue(result.Embedded.Addresses.Count == 20);

@@ -11,7 +11,8 @@ namespace PostcodeAPI.V2
 {
     public sealed class PostcodeApiClient : PostcodeApiClientBase
     {
-        private const string Resource = "addresses";
+        private const string ResourceAddresses = "addresses";
+        private const string ResourcePostcodes = "postcodes";
 
         /// <summary>
         /// The number of calls that the client is allowed to make per day
@@ -48,7 +49,7 @@ namespace PostcodeAPI.V2
 
         public ApiHalResultWrapper GetAddress(string from, string postcode, int? number)
         {
-            RestRequest request = new RestRequest(Resource, Method.GET);
+            RestRequest request = new RestRequest(ResourceAddresses, Method.GET);
 
             if (from != null)
             {
@@ -81,7 +82,7 @@ namespace PostcodeAPI.V2
         /// <example>0268200000075156</example>
         public Address GetAddressInfo(string id)
         {
-            RestRequest request = new RestRequest(Resource + "/{id}", Method.GET);
+            RestRequest request = new RestRequest(ResourceAddresses + "/{id}", Method.GET);
             request.AddUrlSegment("id", id);
 
             IRestResponse<Address> result = Client.Execute<Address>(request);
@@ -89,6 +90,59 @@ namespace PostcodeAPI.V2
             UpdateLimitsAfterApiCall(result);
 
             var instance = JsonConvert.DeserializeObject<Address>(result.Content);
+            return instance;
+        }
+
+        /// <summary>
+        /// Gets all postcodes in The Netherlands, paginated per 20 records.
+        /// </summary>
+        /// <param name="postcodeArea">Filter on post code area in P4 format (the numbers of a postcode only)</param>
+        /// <param name="from">Meant for pagination. Use the HAL links for the correct value</param>
+        public Wrappers.Postcode.ApiHalResultWrapper GetPostcodes(string postcodeArea = null, string from = null)
+        {
+            RestRequest request = new RestRequest(ResourcePostcodes, Method.GET);
+
+            if (postcodeArea != null)
+            {
+                if (FindPostcodeType(postcodeArea) != Constants.PostcodeFormatTypes.P4)
+                {
+                    throw new ArgumentException("Postcode is not of the correct format " + Constants.PostcodeFormatTypes.P4);
+                }
+                request.AddParameter("postcodeArea", postcodeArea);
+            }
+
+            if (from != null)
+            {
+                request.AddParameter("from", from);
+            }
+            
+            IRestResponse<Wrappers.Postcode.ApiHalResultWrapper> result = Client.Execute<Wrappers.Postcode.ApiHalResultWrapper>(request);
+            if (result.StatusCode != HttpStatusCode.OK) HandleStatusCodeResult(result);
+            UpdateLimitsAfterApiCall(result);
+
+            var instance = JsonConvert.DeserializeObject<Wrappers.Postcode.ApiHalResultWrapper>(result.Content);
+            return instance;
+        }
+
+        /// <summary>
+        /// Gets information about a single postcode.
+        /// </summary>
+        /// <param name="postcode">The postcode in P6 format (<seealso cref="Constants.PostcodeFormatTypes.P6" />)</param>
+        public Model.Postcode.Address GetPostcode(string postcode)
+        {
+            RestRequest request = new RestRequest(ResourcePostcodes + "/{postcode}", Method.GET);
+            request.AddUrlSegment("postcode", postcode);
+
+            if (FindPostcodeType(postcode) != Constants.PostcodeFormatTypes.P6)
+            {
+                throw new ArgumentException("Postcode is not of the correct format " + Constants.PostcodeFormatTypes.P6, nameof(postcode));
+            }
+
+            IRestResponse<Model.Postcode.Address> result = Client.Execute<Model.Postcode.Address>(request);
+            if (result.StatusCode != HttpStatusCode.OK) HandleStatusCodeResult(result);
+            UpdateLimitsAfterApiCall(result);
+
+            var instance = JsonConvert.DeserializeObject<Model.Postcode.Address>(result.Content);
             return instance;
         }
 
