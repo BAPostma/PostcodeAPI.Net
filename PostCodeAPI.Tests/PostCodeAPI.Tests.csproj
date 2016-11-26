@@ -6,7 +6,7 @@
     <ProjectGuid>{E3914881-9A85-4DB5-82B5-F6664A96D272}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PostCodeAPI.Tests</RootNamespace>
+    <RootNamespace>PostcodeAPI.Tests</RootNamespace>
     <AssemblyName>Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

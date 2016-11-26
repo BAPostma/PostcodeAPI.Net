@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PostcodeAPI.V1;
 using PostcodeAPI.V1.Wrappers;
 
-namespace PostCodeAPI.Tests
+namespace PostcodeAPI.Tests
 {
     [TestClass]
     [Ignore] // V1 has been officially deprecated as of 2016-03-01

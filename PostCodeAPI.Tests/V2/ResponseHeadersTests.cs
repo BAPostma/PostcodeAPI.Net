@@ -1,9 +1,8 @@
-﻿using System;
-using System.Configuration;
+﻿using System.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PostcodeAPI.V2;
 
-namespace PostCodeAPI.Tests.V2
+namespace PostcodeAPI.Tests.V2
 {
     [TestClass]
     [Ignore]

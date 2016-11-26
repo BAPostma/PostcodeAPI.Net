@@ -1,12 +1,10 @@
-﻿using System;
-using System.Configuration;
-using System.Diagnostics;
+﻿using System.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PostcodeAPI.V2;
 using PostcodeAPI.V2.Model;
 using PostcodeAPI.V2.Wrappers;
 
-namespace PostCodeAPI.Tests.V2
+namespace PostcodeAPI.Tests.V2
 {
     [TestClass]
     [Ignore]
