@@ -40,6 +40,7 @@ namespace PostCodeAPI.Tests.V2
             Assert.AreEqual(1, result.Embedded.Addresses.Count);
             Assert.AreEqual("Component", result.Embedded.Addresses[0].Street);
             Assert.AreEqual("Purmerend", result.Embedded.Addresses[0].City.Label);
+            Assert.AreEqual(1997, result.Embedded.Addresses[0].Year);
         }
 
         [TestMethod]

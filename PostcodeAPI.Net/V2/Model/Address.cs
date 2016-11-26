@@ -47,6 +47,11 @@ namespace PostcodeAPI.V2.Model
         /// </summary>
         [JsonProperty("purpose")]
         public string Purpose { get; set; }
+        /// <summary>
+        /// Year in which the building was built
+        /// </summary>
+        [JsonProperty("year")]
+        public int Year { get; set; }
         [JsonProperty("_links")]
         public HalNavigator Links { get; set; }
     }
