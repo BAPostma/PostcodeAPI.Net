@@ -27,6 +27,11 @@ namespace PostCodeAPI.Tests.V2
             Address address = client.GetAddressInfo("0268200000075156");
 
             Assert.IsNotNull(address);
+            Assert.IsNotNull(address.Geo.GeographicCenter);
+            Assert.IsNotNull(address.Geo.GeographicExterior);
+            Assert.AreEqual(1, address.Geo.GeographicExterior.WGSCoordinates.Coordinates.Count);
+            Assert.AreEqual(5, address.Geo.GeographicExterior.WGSCoordinates.Coordinates[0].Count);
+            Assert.AreEqual(2, address.Geo.GeographicExterior.WGSCoordinates.Coordinates[0][1].Count);
         }
 
         [TestMethod]

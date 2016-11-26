@@ -5,7 +5,7 @@ namespace PostcodeAPI.V2.Model
     public class GeographicCenter
     {
         [JsonProperty("wgs84")]
-        public WorldGeodeticSystem WGSCoordinates { get; set; }
+        public PointWGS WGSCoordinates { get; set; }
 
         [JsonProperty("rd")]
         public RijksDriehoek RDCoordinates { get; set; }

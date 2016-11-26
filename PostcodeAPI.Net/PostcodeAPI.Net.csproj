@@ -63,7 +63,10 @@
     <Compile Include="V1\Model\Resource.cs" />
     <Compile Include="V1\Wrappers\ApiResultWrapper.cs" />
     <Compile Include="V2\Model\Address.cs" />
+    <Compile Include="V2\Model\GeographicExterior.cs" />
     <Compile Include="V2\Model\NEN5825Base.cs" />
+    <Compile Include="V2\Model\PointWGS.cs" />
+    <Compile Include="V2\Model\PolygonWGS.cs" />
     <Compile Include="V2\Model\PostcodeArea.cs" />
     <Compile Include="V2\Model\MultipleNEN5825.cs" />
     <Compile Include="V2\Wrappers\HalEmbeddedResult.cs" />
@@ -79,7 +82,7 @@
     <Compile Include="V2\PostcodeApiClient.cs" />
     <Compile Include="V2\Model\Province.cs" />
     <Compile Include="V2\Model\RijksDriehoek.cs" />
-    <Compile Include="V2\Model\WGS84.cs" />
+    <Compile Include="V2\Model\WorldGeodeticSystemBase.cs" />
     <Compile Include="V2\Wrappers\ApiHalResultWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
