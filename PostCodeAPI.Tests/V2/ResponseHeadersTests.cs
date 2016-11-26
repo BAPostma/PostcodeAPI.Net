@@ -37,15 +37,15 @@ namespace PostCodeAPI.Tests.V2
             PostcodeApiClient client = new PostcodeApiClient(_apiKey);
             client.GetAddressInfo("0268200000075156");
 
-            int? limit = client.RequestDayLimit;
             int? remaining = client.RequestsRemaining;
+            int? limit = client.RequestDayLimit;
 
-            Assert.IsNotNull(remaining);
-            Assert.IsNotNull(limit);
+            Assert.IsNotNull(remaining, "Calls remaining: {0}", remaining);
+            Assert.IsNotNull(limit, "Max calls: {0}", limit);
 
             client.GetAddressInfo("0268200000075156");
 
-            Assert.IsTrue(client.RequestsRemaining < remaining);
+            Assert.IsTrue(client.RequestsRemaining < remaining, "Calls remaining (after query): {0}", client.RequestsRemaining);
             Assert.AreEqual(limit, client.RequestDayLimit);
         }
     }

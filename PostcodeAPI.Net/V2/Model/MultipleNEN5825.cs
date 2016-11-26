@@ -1,15 +1,12 @@
-using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace PostcodeAPI.V2.Model.Postcode
+namespace PostcodeAPI.V2.Model
 {
-    public class NEN5825
+    public class MultipleNEN5825 : NEN5825Base
     {
         [JsonProperty("streets")]
         public List<string> Streets { get; set; }
-        [JsonProperty("postcode")]
-        public string Postcode { get; set; }
 
         public override string ToString()
         {

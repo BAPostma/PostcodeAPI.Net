@@ -28,7 +28,7 @@ namespace PostcodeAPI.V2.Model
         /// Address following the NEN5825 standard
         /// </summary>
         [JsonProperty("nen5825")]
-        public NEN5825 NEN5825 { get; set; }
+        public SingleNEN5825 NEN5825 { get; set; }
         [JsonProperty("city")]
         public City City { get; set; }
         [JsonProperty("municipality")]

@@ -4,8 +4,7 @@ using System.Diagnostics;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PostcodeAPI.V2;
 using PostcodeAPI.V2.Model;
-using PostcodeAPI.V2.Wrappers.Postcode;
-using Address = PostcodeAPI.V2.Model.Postcode.Address;
+using PostcodeAPI.V2.Wrappers;
 
 namespace PostCodeAPI.Tests.V2
 {
@@ -38,7 +37,7 @@ namespace PostCodeAPI.Tests.V2
         public void GetSinglePostcodeInformation()
         {
             PostcodeApiClient client = new PostcodeApiClient(_apiKey);
-            Address result = client.GetPostcode("1097JR");
+            PostcodeArea result = client.GetPostcode("1097JR");
 
             Assert.IsNotNull(result);
             Assert.AreEqual(1, result.Streets.Count);

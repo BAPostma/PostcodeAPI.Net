@@ -8,5 +8,8 @@ namespace PostcodeAPI.V2.Wrappers
     {
         [JsonProperty("addresses")]
         public List<Address> Addresses { get; set; }
+
+        [JsonProperty("postcodes")]
+        public List<PostcodeArea> Postcodes { get; set; }
     }
 }

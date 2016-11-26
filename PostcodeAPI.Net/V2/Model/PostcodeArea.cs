@@ -2,9 +2,9 @@
 using Newtonsoft.Json;
 using PostcodeAPI.V2.Wrappers;
 
-namespace PostcodeAPI.V2.Model.Postcode
+namespace PostcodeAPI.V2.Model
 {
-    public class Address
+    public class PostcodeArea
     {
         /// <summary>
         /// Post code in the P6 format
@@ -23,7 +23,7 @@ namespace PostcodeAPI.V2.Model.Postcode
         /// Streets following the NEN5825 standard
         /// </summary>
         [JsonProperty("nen5825")]
-        public NEN5825 NEN5825 { get; set; }
+        public MultipleNEN5825 NEN5825 { get; set; }
         [JsonProperty("distance")]
         public double Distance { get; set; }
         [JsonProperty("geo")]
