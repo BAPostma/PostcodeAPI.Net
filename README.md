@@ -10,4 +10,8 @@ To contribute to the specification of this API, join the guys over at their repo
 Any contributions are welcome in the form of pull-requests.
 
 ## Installation
-The package can be installed via NuGet: <https://www.nuget.org/packages/postcodeapi.net/>.
+[![NuGet](https://img.shields.io/nuget/v/PostcodeAPI.Net.svg)](https://www.nuget.org/packages/postcodeapi.net/) 
+
+The package can be installed via NuGet: <https://www.nuget.org/packages/postcodeapi.net/> or using the package manager console:
+
+` PM> Install-Package postcodeapi.net `
