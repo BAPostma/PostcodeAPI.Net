@@ -25,11 +25,14 @@ namespace PostcodeAPI.V2
         /// </summary>
         public int? RequestsRemaining { get; private set; } = null;
 
-        public PostcodeApiClient(string apiKey) : base(apiKey)
+        public PostcodeApiClient(string apiKey) : base(apiKey, Constants.APIBaseUrls.V2, Constants.APIHeaderKeys.AuthKeyV2)
         {
-            EndpointUrl = "https://postcode-api.apiwise.nl/v2/";
-            HeaderKey = "X-Api-Key";
-            InitaliseClient();
+            InitialiseClient();
+        }
+
+        public PostcodeApiClient(string apiKey, IRestClient restClient) : base(apiKey, Constants.APIBaseUrls.V1, Constants.APIHeaderKeys.AuthKeyV2)
+        {
+            InitialiseClient(restClient);
         }
 
         public ApiHalResultWrapper GetAddress(string postcode)

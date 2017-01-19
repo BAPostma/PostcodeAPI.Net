@@ -6,11 +6,9 @@ namespace PostcodeAPI.V1
 {
     public sealed class PostcodeApiClient : PostcodeApiClientBase
     {
-        public PostcodeApiClient(string apiKey) : base(apiKey)
+        public PostcodeApiClient(string apiKey) : base(apiKey, Constants.APIBaseUrls.V1, Constants.APIHeaderKeys.AuthKeyV1)
         {
-            EndpointUrl = "http://api.postcodeapi.nu/";
-            HeaderKey = "Api-Key";
-            InitaliseClient();
+            InitialiseClient();
         }
 
         public ApiResultWrapper GetAddress(string postcode)

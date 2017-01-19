@@ -1,3 +1,4 @@
+using System;
 using System.Text.RegularExpressions;
 using PostcodeAPI.V1;
 using RestSharp;
@@ -6,21 +7,29 @@ namespace PostcodeAPI
 {
     public abstract class PostcodeApiClientBase
     {
-        protected RestClient Client;
+        protected IRestClient Client;
 
         public string EndpointUrl { get; set; }
         public string HeaderKey { get; set; }
         public string APIKey { get; set; }
 
-        protected PostcodeApiClientBase(string apiKey)
+        protected PostcodeApiClientBase(string apiKey, string endpointUrl, string headerKey)
         {
             APIKey = apiKey;
+            EndpointUrl = endpointUrl;
+            HeaderKey = headerKey;
         }
 
-        protected void InitaliseClient()
+        protected void InitialiseClient(IRestClient client)
         {
-            Client = new RestClient(EndpointUrl);
+            Client = client;
+            Client.BaseUrl = new Uri(EndpointUrl);
             Client.AddDefaultHeader(HeaderKey, APIKey);
+        }
+
+        protected void InitialiseClient()
+        {
+            InitialiseClient(new RestClient(EndpointUrl));
         }
 
         //public abstract ApiResultWrapper GetAddress(string postcode);

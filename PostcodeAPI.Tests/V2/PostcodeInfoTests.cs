@@ -7,7 +7,7 @@ using PostcodeAPI.V2.Wrappers;
 namespace PostcodeAPI.Tests.V2
 {
     [TestClass]
-    [Ignore]
+    //[Ignore]
     public class PostcodeInfoTests
     {
         private string _apiKey;

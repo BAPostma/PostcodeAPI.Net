@@ -5,7 +5,7 @@ using PostcodeAPI.V2;
 namespace PostcodeAPI.Tests.V2
 {
     [TestClass]
-    [Ignore]
+    //[Ignore]
     public class ResponseHeadersTests
     {
         private string _apiKey;
