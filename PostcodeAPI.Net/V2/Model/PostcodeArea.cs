@@ -25,7 +25,7 @@ namespace PostcodeAPI.V2.Model
         [JsonProperty("nen5825")]
         public MultipleNEN5825 NEN5825 { get; set; }
         [JsonProperty("distance")]
-        public double Distance { get; set; }
+        public double? Distance { get; set; }
         [JsonProperty("geo")]
         public Geo Geo { get; set; }
         [JsonProperty("_links")]

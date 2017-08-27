@@ -51,7 +51,7 @@ namespace PostcodeAPI.V2.Model
         /// Year in which the building was built
         /// </summary>
         [JsonProperty("year")]
-        public int Year { get; set; }
+        public int? Year { get; set; }
         [JsonProperty("_links")]
         public HalNavigator Links { get; set; }
     }
