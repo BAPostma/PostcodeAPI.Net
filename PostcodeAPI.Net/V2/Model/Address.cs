@@ -25,6 +25,11 @@ namespace PostcodeAPI.V2.Model
         [JsonProperty("postcode")]
         public string Postcode { get; set; }
         /// <summary>
+        /// Surface of the object in M²
+        /// </summary>
+        [JsonProperty("surface")]
+        public int? SurfaceArea { get; set; }
+        /// <summary>
         /// Address following the NEN5825 standard
         /// </summary>
         [JsonProperty("nen5825")]

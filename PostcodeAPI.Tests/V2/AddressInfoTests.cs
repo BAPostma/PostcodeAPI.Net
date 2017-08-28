@@ -44,6 +44,7 @@ namespace PostcodeAPI.Tests.V2
             Assert.AreEqual("Component", result.Embedded.Addresses[0].Street);
             Assert.AreEqual("Purmerend", result.Embedded.Addresses[0].City.Label);
             Assert.AreEqual(1997, result.Embedded.Addresses[0].Year);
+            Assert.AreEqual(682, result.Embedded.Addresses[0].SurfaceArea);
         }
 
         [TestMethod]
