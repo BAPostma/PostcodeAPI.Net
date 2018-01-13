@@ -22,6 +22,15 @@ More information can be found on http://www.postcodeapi.nu. Access tokens can al
     <PackageIconUrl>https://github.com/BAPostma/PostcodeAPI.Net/raw/master/logo.png</PackageIconUrl>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\netstandard2.0\PostcodeAPI.NET.xml</DocumentationFile>
+    <NoWarn>1591;1701;1702;1705</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\netstandard2.0\PostcodeAPI.NET.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
     <PackageReference Include="RestSharp" Version="106.1.0" />
