@@ -1,27 +1,16 @@
-﻿using System.Configuration;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PostcodeAPI;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PostcodeAPI.Model;
 using PostcodeAPI.Wrappers;
 
 namespace PostcodeAPI.Tests
 {
     [TestClass]
-    //[Ignore]
-    public class AddressInfoTests
+    public class AddressInfoTests : TestBase
     {
-        private string _apiKey;
-
-        [TestInitialize]
-        public void SetUp()
-        {
-            _apiKey = ConfigurationManager.AppSettings.Get("ApiKeyV2");
-        }
-
         [TestMethod]
         public void GetSingleAddress()
         {
-            PostcodeApiClient client = new PostcodeApiClient(_apiKey);
+            PostcodeApiClient client = new PostcodeApiClient(ApiKey);
             Address address = client.GetAddressInfo("0268200000075156");
 
             Assert.IsNotNull(address);
@@ -35,7 +24,7 @@ namespace PostcodeAPI.Tests
         [TestMethod]
         public void GetSpecificAddress()
         {
-            PostcodeApiClient client = new PostcodeApiClient(_apiKey);
+            PostcodeApiClient client = new PostcodeApiClient(ApiKey);
             ApiHalResultWrapper result = client.GetAddress("1446WP", 106);
 
             Assert.IsNotNull(result);
@@ -50,7 +39,7 @@ namespace PostcodeAPI.Tests
         [TestMethod]
         public void GetAddressRange()
         {
-            PostcodeApiClient client = new PostcodeApiClient(_apiKey);
+            PostcodeApiClient client = new PostcodeApiClient(ApiKey);
             ApiHalResultWrapper result = client.GetAddress("1446WP");
 
             Assert.IsNotNull(result);
@@ -64,7 +53,7 @@ namespace PostcodeAPI.Tests
         [TestMethod]
         public void GetLargeAddressRange()
         {
-            PostcodeApiClient client = new PostcodeApiClient(_apiKey);
+            PostcodeApiClient client = new PostcodeApiClient(ApiKey);
             ApiHalResultWrapper result = client.GetAddress("1097JR");
 
             Assert.IsNotNull(result);

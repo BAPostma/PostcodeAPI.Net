@@ -5,21 +5,12 @@ using PostcodeAPI;
 namespace PostcodeAPI.Tests
 {
     [TestClass]
-    //[Ignore]
-    public class ResponseHeadersTests
+    public class ResponseHeadersTests : TestBase
     {
-        private string _apiKey;
-
-        [TestInitialize]
-        public void SetUp()
-        {
-            _apiKey = ConfigurationManager.AppSettings.Get("ApiKeyV2");
-        }
-
         [TestMethod]
         public void RequestsLimitsAreFilled()
         {
-            PostcodeApiClient client = new PostcodeApiClient(_apiKey);
+            PostcodeApiClient client = new PostcodeApiClient(ApiKey);
 
             Assert.IsNull(client.RequestDayLimit);
             Assert.IsNull(client.RequestsRemaining);
@@ -33,7 +24,7 @@ namespace PostcodeAPI.Tests
         [TestMethod]
         public void RequestLimitsAreUpdatedAfterEachRequest()
         {
-            PostcodeApiClient client = new PostcodeApiClient(_apiKey);
+            PostcodeApiClient client = new PostcodeApiClient(ApiKey);
             client.GetAddressInfo("0268200000075156");
 
             int? remaining = client.RequestsRemaining;

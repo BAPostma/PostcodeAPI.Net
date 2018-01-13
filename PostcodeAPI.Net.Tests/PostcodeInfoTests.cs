@@ -7,21 +7,12 @@ using PostcodeAPI.Wrappers;
 namespace PostcodeAPI.Tests
 {
     [TestClass]
-    //[Ignore]
-    public class PostcodeInfoTests
+    public class PostcodeInfoTests : TestBase
     {
-        private string _apiKey;
-
-        [TestInitialize]
-        public void SetUp()
-        {
-            _apiKey = ConfigurationManager.AppSettings.Get("ApiKeyV2");
-        }
-
         [TestMethod]
         public void GetLargePostcodeSet()
         {
-            PostcodeApiClient client = new PostcodeApiClient(_apiKey);
+            PostcodeApiClient client = new PostcodeApiClient(ApiKey);
             ApiHalResultWrapper result = client.GetPostcodes("1097");
 
             Assert.IsNotNull(result);
@@ -34,7 +25,7 @@ namespace PostcodeAPI.Tests
         [TestMethod]
         public void GetSinglePostcodeInformation()
         {
-            PostcodeApiClient client = new PostcodeApiClient(_apiKey);
+            PostcodeApiClient client = new PostcodeApiClient(ApiKey);
             PostcodeArea result = client.GetPostcode("1097JR");
 
             Assert.IsNotNull(result);
