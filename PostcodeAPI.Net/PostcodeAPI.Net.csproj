@@ -20,6 +20,7 @@ More information can be found on http://www.postcodeapi.nu. Access tokens can al
     <AssemblyName>PostcodeAPI.NET</AssemblyName>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageIconUrl>https://github.com/BAPostma/PostcodeAPI.Net/raw/master/logo.png</PackageIconUrl>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
