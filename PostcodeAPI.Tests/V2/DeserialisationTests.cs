@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.IO;
-using PostcodeAPI.V2.Wrappers;
+using PostcodeAPI.Wrappers;
 using Newtonsoft.Json;
 
 namespace PostcodeAPI.Tests.V2

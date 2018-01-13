@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PostcodeAPI.V2;
+using PostcodeAPI;
 
 namespace PostcodeAPI.Tests.V2
 {
