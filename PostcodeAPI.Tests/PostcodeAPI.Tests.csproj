@@ -77,7 +77,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PostcodeAPI.Net.Standard\PostcodeAPI.Net.csproj">
+    <ProjectReference Include="..\PostcodeAPI.Net\PostcodeAPI.Net.csproj">
       <Project>{e2b2362c-6552-44ea-adcc-776d7afd78f7}</Project>
       <Name>PostcodeAPI.Net</Name>
     </ProjectReference>
