@@ -4,7 +4,7 @@ using PostcodeAPI;
 using PostcodeAPI.Model;
 using PostcodeAPI.Wrappers;
 
-namespace PostcodeAPI.Tests.V2
+namespace PostcodeAPI.Tests
 {
     [TestClass]
     //[Ignore]

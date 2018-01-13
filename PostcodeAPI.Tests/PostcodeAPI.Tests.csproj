@@ -58,11 +58,11 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="V2\PostcodeInfoTests.cs" />
-    <Compile Include="V2\AddressInfoTests.cs" />
+    <Compile Include="PostcodeInfoTests.cs" />
+    <Compile Include="AddressInfoTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="V2\ResponseHeadersTests.cs" />
-    <Compile Include="V2\DeserialisationTests.cs" />
+    <Compile Include="ResponseHeadersTests.cs" />
+    <Compile Include="DeserialisationTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

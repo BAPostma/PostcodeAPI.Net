@@ -4,7 +4,7 @@ using System.IO;
 using PostcodeAPI.Wrappers;
 using Newtonsoft.Json;
 
-namespace PostcodeAPI.Tests.V2
+namespace PostcodeAPI.Tests
 {
     [TestClass]
     public class DeserialisationTests

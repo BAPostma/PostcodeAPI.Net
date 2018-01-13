@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PostcodeAPI;
 
-namespace PostcodeAPI.Tests.V2
+namespace PostcodeAPI.Tests
 {
     [TestClass]
     //[Ignore]
