@@ -18,6 +18,8 @@ More information can be found on http://www.postcodeapi.nu. Access tokens can al
     <PackageTags>postcode, postcodeapi, dutch post code, nederlandse postcode api, open data, bag, kadaster</PackageTags>
     <RootNamespace>PostcodeAPI</RootNamespace>
     <AssemblyName>PostcodeAPI.NET</AssemblyName>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageIconUrl>https://github.com/BAPostma/PostcodeAPI.Net/raw/master/logo.png</PackageIconUrl>
   </PropertyGroup>
 
   <ItemGroup>
