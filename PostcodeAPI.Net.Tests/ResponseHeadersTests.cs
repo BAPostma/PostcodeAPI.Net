@@ -35,7 +35,7 @@ namespace PostcodeAPI.Tests
 
             client.GetAddressInfo("0268200000075156");
 
-            Assert.IsTrue(client.RequestsRemaining < remaining, "Calls remaining (after query): {0}", client.RequestsRemaining);
+            Assert.IsTrue(client.RequestsRemaining <= remaining, "Calls remaining (after query): {0}", client.RequestsRemaining);
             Assert.AreEqual(limit, client.RequestDayLimit);
         }
     }
