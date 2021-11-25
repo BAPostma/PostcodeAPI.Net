@@ -1,40 +1,41 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <Copyright>Copyright © Cyrix Systems 2016</Copyright>
-    <PackageProjectUrl>https://github.com/BAPostma/PostcodeAPI.Net</PackageProjectUrl>
-    <Version Condition=" '$(BUILD_BUILDNUMBER)' == '' ">0.0.0.1-local</Version>
-    <Version Condition=" '$(BUILD_BUILDNUMBER)' != '' ">$(BUILD_BUILDNUMBER)</Version>
-    <RepositoryUrl>https://github.com/BAPostma/PostcodeAPI.Net.git</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-    <PackageId>postcodeapi.net</PackageId>
-    <Authors>BAPostma</Authors>
-    <Company>Cyrix Solutions</Company>
-    <Product>PostcodeAPI.Net</Product>
-    <Description>A .NET library for consuming the Dutch postcodeapi.nu post code database. Uses RestSharp and Newtonsoft.Json.
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<Copyright>Copyright © Cyrix Systems 2016</Copyright>
+		<PackageProjectUrl>https://github.com/BAPostma/PostcodeAPI.Net</PackageProjectUrl>
+		<Version Condition=" '$(BUILD_BUILDNUMBER)' == '' ">0.0.0.1-local</Version>
+		<Version Condition=" '$(BUILD_BUILDNUMBER)' != '' ">$(BUILD_BUILDNUMBER)</Version>
+		<RepositoryUrl>https://github.com/BAPostma/PostcodeAPI.Net.git</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageId>postcodeapi.net</PackageId>
+		<Authors>BAPostma</Authors>
+		<Company>Cyrix Solutions</Company>
+		<Product>PostcodeAPI.Net</Product>
+		<Description>A .NET library for consuming the Dutch postcodeapi.nu post code database. Uses RestSharp and Newtonsoft.Json.
 
 More information can be found on http://www.postcodeapi.nu. Access tokens can also be requested here. To contribute to the specification of this API, join the guys over at their repo: https://github.com/apiwise/postcodeapi.</Description>
-    <PackageTags>postcode, postcodeapi, dutch post code, nederlandse postcode api, open data, bag, kadaster</PackageTags>
-    <RootNamespace>PostcodeAPI</RootNamespace>
-    <AssemblyName>PostcodeAPI.NET</AssemblyName>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <PackageIconUrl>https://github.com/BAPostma/PostcodeAPI.Net/raw/master/logo.png</PackageIconUrl>
-    <AssemblyVersion>2.0.0.0</AssemblyVersion>
-  </PropertyGroup>
+		<PackageTags>postcode, postcodeapi, dutch post code, nederlandse postcode api, open data, bag, kadaster</PackageTags>
+		<RootNamespace>PostcodeAPI</RootNamespace>
+		<AssemblyName>PostcodeAPI.NET</AssemblyName>
+		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+		<PackageIconUrl>https://github.com/BAPostma/PostcodeAPI.Net/raw/master/logo.png</PackageIconUrl>
+		<AssemblyVersion>2.1.0.0</AssemblyVersion>
+	</PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>bin\Debug\netstandard2.0\PostcodeAPI.NET.xml</DocumentationFile>
-    <NoWarn>1591;1701;1702;1705</NoWarn>
-  </PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DocumentationFile>bin\Debug\netstandard2.0\PostcodeAPI.NET.xml</DocumentationFile>
+		<NoWarn>1591;1701;1702;1705</NoWarn>
+	</PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>bin\Release\netstandard2.0\PostcodeAPI.NET.xml</DocumentationFile>
-  </PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<DocumentationFile>bin\Release\netstandard2.0\PostcodeAPI.NET.xml</DocumentationFile>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
-    <PackageReference Include="RestSharp" Version="106.1.0" />
-  </ItemGroup>
-
+	<ItemGroup>
+		<PackageReference Include="Microsoft.CSharp" Version="4.7.0"/>
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1"/>
+		<PackageReference Include="RestSharp" Version="106.13.0"/>
+	</ItemGroup>
+  
 </Project>
