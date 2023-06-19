@@ -23,6 +23,7 @@ namespace PostcodeAPI
         {
             Client = client;
             Client.BaseUrl = new Uri(EndpointUrl);
+            client.UserAgent = string.Format(Constants.APIHeaderKeys.UserAgentFormatString, Constants.AssemblyVersion);
             Client.AddDefaultHeader(HeaderKey, APIKey);
         }
 

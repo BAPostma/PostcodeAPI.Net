@@ -1,13 +1,15 @@
 ﻿using System.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 using PostcodeAPI;
 using PostcodeAPI.Model;
 using PostcodeAPI.Wrappers;
+using RestSharp;
 
 namespace PostcodeAPI.Tests
 {
     [TestClass]
-    public class PostcodeInfoTests : TestBase
+    public class PostcodeApiClientTests : TestBase
     {
         [TestMethod]
         public void GetLargePostcodeSet()
@@ -32,6 +34,18 @@ namespace PostcodeAPI.Tests
             Assert.AreEqual(1, result.Streets.Count);
             Assert.AreEqual("Pierre Lallementstraat", result.Streets[0]);
             Assert.AreEqual("Amsterdam", result.City.Label);
+        }
+
+        [TestMethod]
+        public void UserAgentIsSetToLibraryNameAndVersion()
+        {
+            var mock = new Mock<IRestClient>();
+            mock.Setup(c => c.Execute<It.IsAnyType>(It.IsAny<IRestRequest>()));
+
+            PostcodeApiClient client = new PostcodeApiClient(ApiKey, mock.Object);
+            ApiHalResultWrapper result = client.GetPostcodes("1097");
+
+            mock.VerifySet(e => e.UserAgent = string.Format("", ""));
         }
     }
 }

@@ -1,7 +1,11 @@
-﻿namespace PostcodeAPI
+﻿using System.Reflection;
+
+namespace PostcodeAPI
 {
     public static class Constants
     {
+        public static string AssemblyVersion => Assembly.GetAssembly(typeof(Constants)).GetName().Version.ToString(2);
+
         public static class APIBaseUrls
         {
             public const string V1 = "http://api.postcodeapi.nu/";
@@ -12,6 +16,7 @@
         {
             public const string AuthKeyV1 = "Api-Key";
             public const string AuthKeyV2 = "X-Api-Key";
+            public const string UserAgentFormatString = "PostcodeAPI.Net v{0}";
         }
 
         public static class PostcodeFormatTypes
